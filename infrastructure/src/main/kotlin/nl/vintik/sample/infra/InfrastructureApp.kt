@@ -12,7 +12,7 @@ fun main() {
         .region(System.getenv("DEPLOY_TARGET_REGION"))
         .build()
 
-    val stackNameTable = "Kotlin-Lambda-JVM-table"
+    val stackNameTable = "Kotlin-Lambda-SnapStart-table"
     InfrastructureTableStack(
         app, stackNameTable, StackProps.builder()
             .stackName(stackNameTable)
