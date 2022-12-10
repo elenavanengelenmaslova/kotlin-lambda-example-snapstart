@@ -17,11 +17,11 @@ fun main() {
         app, stackNameTable, StackProps.builder()
             .stackName(stackNameTable)
             .env(environment)
-            .description("Dynamo Table used for JVM example")
+            .description("Dynamo Table used for SnapStart example")
             .build()
     )
 
-    val stackNameJVMArm64 = "Kotlin-Lambda-JVM-Arm64-example"
+    val stackNameJVMArm64 = "Kotlin-Lambda-JVM-Arm64-4compare-example"
     InfrastructureJvmArm64Stack(
         app, stackNameJVMArm64,
         StackProps.builder()
@@ -31,7 +31,7 @@ fun main() {
             .build()
     )
 
-    val stackNameJVMC1Arm64 = "Kotlin-Lambda-JVM-C1-Arm64-example"
+    val stackNameJVMC1Arm64 = "Kotlin-Lambda-JVM-C1-Arm64-4compare-example"
     InfrastructureJvmC1Arm64Stack(
         app,
         stackNameJVMC1Arm64,

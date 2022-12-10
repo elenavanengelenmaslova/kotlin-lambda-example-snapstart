@@ -83,7 +83,7 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/infrastructure
           npm install -g aws-cdk
-          cdk deploy -vv --require-approval never Kotlin-Lambda-JVM-table --exclusively
+          cdk deploy -vv --require-approval never Kotlin-Lambda-SnapStart-table --exclusively
 
   deploy-app:
     runs-on: ubuntu-latest
@@ -94,11 +94,11 @@ jobs:
           [
             {
               component-name: "Kotlin Lambda JVM Arm64",
-              stack-name: "Kotlin-Lambda-JVM-Arm64-example",
+              stack-name: "Kotlin-Lambda-JVM-Arm64-4compare-example",
             },
             {
               component-name: "Kotlin Lambda JVM C1 Arm64",
-              stack-name: "Kotlin-Lambda-JVM-C1-Arm64-example",
+              stack-name: "Kotlin-Lambda-JVM-C1-Arm64-4compare-example",
             },
             {
               component-name: "Kotlin Lambda JVM SnapStart",
