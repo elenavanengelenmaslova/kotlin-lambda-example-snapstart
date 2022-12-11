@@ -9,7 +9,7 @@ import software.constructs.Construct
 
 class InfrastructureJvmC1SnapStartStack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val functionId = "lambdaJvmC1SnapStart-4compare"
+        val functionId = "lambdaJvmC1SnapStart4Compare"
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda JVM C1 SnapStart Example")

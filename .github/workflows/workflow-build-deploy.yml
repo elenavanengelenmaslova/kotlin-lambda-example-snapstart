@@ -138,4 +138,4 @@ jobs:
         run: |
           cd ${GITHUB_WORKSPACE}/infrastructure
           npm install -g aws-cdk
-          cdk deploy --require-approval never ${{ matrix.config.stack-name }} --exclusively
+          cdk deploy -vv --require-approval never ${{ matrix.config.stack-name }} --exclusively
