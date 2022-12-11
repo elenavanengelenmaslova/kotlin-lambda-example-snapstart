@@ -102,15 +102,15 @@ jobs:
             },
             {
               component-name: "Kotlin Lambda JVM SnapStart",
-              stack-name: "Kotlin-Lambda-JVM-SnapStart-example",
+              stack-name: "Kotlin-Lambda-JVM-SnapStart-4compare-example",
             },
             {
               component-name: "Kotlin Lambda JVM C1 SnapStart",
-              stack-name: "Kotlin-Lambda-JVM-C1-SnapStart-example",
+              stack-name: "Kotlin-Lambda-JVM-C1-SnapStart-4compare-example",
             },
             {
               component-name: "Kotlin Lambda JVM C1 SnapStart on CRaC",
-              stack-name: "Kotlin-Lambda-JVM-C1-SnapStart-example",
+              stack-name: "Kotlin-Lambda-SnapStart-OnCRaC-example",
             },
           ]
     name: ${{ matrix.config.component-name }} deployment
