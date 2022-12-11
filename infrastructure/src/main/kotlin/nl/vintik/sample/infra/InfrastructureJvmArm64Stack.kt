@@ -11,7 +11,7 @@ import software.constructs.Construct
 
 class InfrastructureJvmArm64Stack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
+        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val functionId = "lambdaJvmArm64"
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda JVM ARM64 Example")

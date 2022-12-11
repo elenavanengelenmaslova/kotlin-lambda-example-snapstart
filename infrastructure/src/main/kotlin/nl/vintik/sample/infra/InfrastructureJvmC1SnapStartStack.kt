@@ -12,7 +12,7 @@ import software.constructs.Construct
 
 class InfrastructureJvmC1SnapStartStack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
-        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-JVM-ExampleTableArn"))
+        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val function = Function.Builder.create(this, "lambdaJvmC1SnapStart")
             .description("Kotlin Lambda JVM C1 SnapStart Example")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
