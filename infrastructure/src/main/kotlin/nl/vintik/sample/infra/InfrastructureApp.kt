@@ -42,7 +42,7 @@ fun main() {
             .build()
     )
 
-    val stackNameJVMSnapStart = "Kotlin-Lambda-JVM-SnapStart-example"
+    val stackNameJVMSnapStart = "Kotlin-Lambda-JVM-SnapStart-4compare-example"
     InfrastructureJvmSnapStartStack(
         app,
         stackNameJVMSnapStart,
@@ -53,7 +53,7 @@ fun main() {
             .build()
     )
 
-    val stackNameJVMC1SnapStart = "Kotlin-Lambda-JVM-C1-SnapStart-example"
+    val stackNameJVMC1SnapStart = "Kotlin-Lambda-JVM-C1-SnapStart-4compare-example"
     InfrastructureJvmSnapStartStack(
         app,
         stackNameJVMC1SnapStart,
