@@ -41,6 +41,8 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
                 .lambda(function)
                 .build()
         Version(this, "SnapStartVersion", versionProps)
+        val version = function.currentVersion.version
+        println("Lambda version $version")
 
         productsTable.grantReadData(function)
 
