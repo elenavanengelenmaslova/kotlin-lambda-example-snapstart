@@ -33,6 +33,7 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
             CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
         )
         // publish a version
+
         Version(this, "SnapStartVersion") { function }
 
         productsTable.grantReadData(function)
