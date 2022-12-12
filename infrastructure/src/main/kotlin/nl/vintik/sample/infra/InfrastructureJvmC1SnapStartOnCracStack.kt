@@ -7,10 +7,12 @@ import software.amazon.awscdk.services.lambda.Function
 import software.amazon.awscdk.services.logs.RetentionDays
 import software.constructs.Construct
 
-class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
+class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, props: StackProps) :
+    Stack(scope, id, props) {
     init {
         val codeVersion = System.getenv("BUILD_NO")
-        val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
+        val productsTable =
+            Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val functionId = "lambdaJvmC1SnapStartOnCrac"
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda JVM C1 SnapStart On CRaC Example")
@@ -33,8 +35,12 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
             CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
         )
         // publish a version
-
-        Version(this, "SnapStartVersion") { function }
+        val versionProps =
+            VersionProps.builder()
+                .description("Kotlin Lambda JVM C1 SnapStart On CRaC $codeVersion")
+                .lambda(function)
+                .build()
+        Version(this, "SnapStartVersion", versionProps)
 
         productsTable.grantReadData(function)
 
