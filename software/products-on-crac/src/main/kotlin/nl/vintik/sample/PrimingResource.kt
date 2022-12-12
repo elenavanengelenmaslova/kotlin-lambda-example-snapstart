@@ -10,6 +10,7 @@ class PrimingResource : Resource {
     private val productsController: ProductsController = ProductsController(ProductsService(productTable))
 
     init {
+        logger().info("register priming")
         Core.getGlobalContext().register(this)
     }
 
