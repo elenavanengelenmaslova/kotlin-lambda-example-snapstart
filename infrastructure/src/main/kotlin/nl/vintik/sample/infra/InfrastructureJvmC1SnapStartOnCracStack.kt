@@ -9,6 +9,7 @@ import software.constructs.Construct
 
 class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, props: StackProps) : Stack(scope, id, props) {
     init {
+        val codeVersion = System.getenv("BUILD_NO")
         val productsTable = Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val functionId = "lambdaJvmC1SnapStartOnCrac"
         val function = Function.Builder.create(this, functionId)
@@ -18,7 +19,8 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
             .code(Code.fromAsset("../build/dist/function-on-crac.zip"))
             .environment(
                 mapOf(
-                    "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1"
+                    "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1",
+                    "CodeVersionString" to codeVersion,
                 )
             )
             .logRetention(RetentionDays.ONE_WEEK)
