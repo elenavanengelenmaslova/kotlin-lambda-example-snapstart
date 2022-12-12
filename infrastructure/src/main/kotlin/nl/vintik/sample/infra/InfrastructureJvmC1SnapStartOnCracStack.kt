@@ -30,10 +30,10 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
             .timeout(Duration.seconds(120))
             .build()
 
-//        //enable SnapStart
-//        (function.node.defaultChild as CfnFunction).setSnapStart(
-//            CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
-//        )
+        //enable SnapStart
+        (function.node.defaultChild as CfnFunction).setSnapStart(
+            CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
+        )
 //        // publish a version
 //        val versionProps =
 //            VersionProps.builder()
