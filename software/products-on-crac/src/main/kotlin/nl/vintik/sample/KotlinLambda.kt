@@ -23,13 +23,13 @@ class KotlinLambda : RequestHandler<Map<String, String>, Product?>, Resource {
     }
 
     override fun beforeCheckpoint(context: org.crac.Context<out Resource>?) {
-        println("beforeCheckpoint hook")
+        logger().info("beforeCheckpoint hook")
         runCatching {
             productsController.find("1")
         }
     }
 
     override fun afterRestore(context: org.crac.Context<out Resource>?) {
-        println("afterRestore hook")
+        logger().info("afterRestore hook")
     }
 }
