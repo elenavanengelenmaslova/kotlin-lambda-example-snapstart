@@ -10,7 +10,6 @@ import software.constructs.Construct
 class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, props: StackProps) :
     Stack(scope, id, props) {
     init {
-        val codeVersion = System.getenv("BUILD_NO")
         val productsTable =
             Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
         val functionId = "lambdaJvmC1SnapStartOnCrac"
@@ -21,8 +20,10 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
             .code(Code.fromAsset("../build/dist/function-on-crac.zip"))
             .environment(
                 mapOf(
+                    // Stop after C1 compilation
                     "JAVA_TOOL_OPTIONS" to "-XX:+TieredCompilation -XX:TieredStopAtLevel=1",
-                    "CodeVersionString" to codeVersion,
+                    // Ensure lambda version is updated with latest lambda code
+                    "CodeVersionString" to System.getenv("BUILD_NO"),
                 )
             )
             .logRetention(RetentionDays.ONE_WEEK)
@@ -34,15 +35,8 @@ class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, prop
         (function.node.defaultChild as CfnFunction).setSnapStart(
             CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
         )
-//        // publish a version
-//        val versionProps =
-//            VersionProps.builder()
-//                .description("Kotlin Lambda JVM C1 SnapStart On CRaC $codeVersion")
-//                .lambda(function)
-//                .build()
-//        Version(this, "SnapStartVersion", versionProps)
-        val version = function.currentVersion.version
-        println("Lambda version $version")
+        // publish a version
+        function.currentVersion
 
         productsTable.grantReadData(function)
 
