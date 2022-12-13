@@ -6,9 +6,11 @@ import software.amazon.awssdk.enhanced.dynamodb.Key
 
 class ProductsService(private val productTable: DynamoDbAsyncTable<Product>) {
     fun findProduct(id: String): Product? {
-        return productTable.getItem(Key
-            .builder()
-            .partitionValue(id)
-            .build()).get()
+        return productTable.getItem(
+            Key
+                .builder()
+                .partitionValue(id)
+                .build()
+        ).get()
     }
 }
