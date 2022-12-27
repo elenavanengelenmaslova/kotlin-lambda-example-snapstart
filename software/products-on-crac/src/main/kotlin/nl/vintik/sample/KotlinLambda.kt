@@ -19,7 +19,7 @@ class KotlinLambda : RequestHandler<ProductRequest, Product?>, Resource {
     }
 
     override fun handleRequest(event: ProductRequest, context: Context): Product? {
-        logger().info("SnapStart on CRaC")
+        logger().info("SnapStart and CRaC")
         return productsController.find(event.id)
     }
 

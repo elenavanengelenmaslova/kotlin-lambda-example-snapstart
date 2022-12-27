@@ -21,9 +21,6 @@ configurations {
         exclude("org.jetbrains")
     }
 }
-repositories {
-    mavenCentral()
-}
 
 tasks.register<Zip>("packageDistribution") {
     from(tasks.compileKotlin)

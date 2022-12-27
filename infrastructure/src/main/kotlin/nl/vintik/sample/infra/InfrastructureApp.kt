@@ -64,14 +64,14 @@ fun main() {
             .build()
     )
 
-    val stackNameSnapStartOnCrac = "Kotlin-Lambda-SnapStart-OnCRaC-example"
-    InfrastructureJvmC1SnapStartOnCracStack(
+    val stackNameSnapStartAndCrac = "Kotlin-Lambda-SnapStart-AndCRaC-example"
+    InfrastructureJvmC1SnapStartAndCracStack(
         app,
-        stackNameSnapStartOnCrac,
+        stackNameSnapStartAndCrac,
         StackProps.builder()
-            .stackName(stackNameSnapStartOnCrac)
+            .stackName(stackNameSnapStartAndCrac)
             .env(environment)
-            .description("SnapStart on CraC example")
+            .description("SnapStart and CraC example")
             .build()
     )
 

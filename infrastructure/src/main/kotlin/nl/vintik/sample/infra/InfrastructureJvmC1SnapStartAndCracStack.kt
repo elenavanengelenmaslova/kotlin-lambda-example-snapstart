@@ -7,14 +7,14 @@ import software.amazon.awscdk.services.lambda.Function
 import software.amazon.awscdk.services.logs.RetentionDays
 import software.constructs.Construct
 
-class InfrastructureJvmC1SnapStartOnCracStack(scope: Construct, id: String, props: StackProps) :
+class InfrastructureJvmC1SnapStartAndCracStack(scope: Construct, id: String, props: StackProps) :
     Stack(scope, id, props) {
     init {
         val productsTable =
             Table.fromTableArn(this, "dynamoTable", Fn.importValue("Products-SnapStart-ExampleTableArn"))
-        val functionId = "lambdaJvmC1SnapStartOnCrac"
+        val functionId = "lambdaJvmC1SnapStartAndCrac"
         val function = Function.Builder.create(this, functionId)
-            .description("Kotlin Lambda JVM C1 SnapStart On CRaC Example")
+            .description("Kotlin Lambda JVM C1 SnapStart And CRaC Example")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
             .runtime(Runtime.JAVA_11)
             .code(Code.fromAsset("../build/dist/function-on-crac.zip"))
