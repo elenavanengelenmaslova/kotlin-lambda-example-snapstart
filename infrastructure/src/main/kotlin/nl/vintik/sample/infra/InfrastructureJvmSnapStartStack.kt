@@ -32,7 +32,7 @@ class InfrastructureJvmSnapStartStack(scope: Construct, id: String, props: Stack
             CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
         )
         // publish a version
-        function.currentVersion
+        //function.currentVersion
 
         productsTable.grantReadData(function)
 
