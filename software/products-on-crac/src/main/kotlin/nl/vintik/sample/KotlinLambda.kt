@@ -26,7 +26,7 @@ class KotlinLambda : RequestHandler<ProductRequest, Product?>, Resource {
     override fun beforeCheckpoint(context: org.crac.Context<out Resource>?) {
         logger().info("beforeCheckpoint hook")
         runCatching {
-            productsController.find("1")
+            productsController.find("i dont exist")
         }
     }
 
