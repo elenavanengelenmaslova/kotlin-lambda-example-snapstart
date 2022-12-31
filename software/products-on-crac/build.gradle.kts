@@ -1,6 +1,6 @@
 
 dependencies {
-    implementation("software.amazon.awssdk:dynamodb-enhanced:2.18.24")
+    implementation("software.amazon.awssdk:dynamodb-enhanced:2.19.4")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.0")
     implementation("io.github.crac:org-crac:0.1.3")
@@ -10,7 +10,7 @@ dependencies {
     testImplementation("org.junit.jupiter:junit-jupiter-api:5.9.0")
     testImplementation("org.junit.jupiter:junit-jupiter-engine:5.9.0")
     testImplementation("org.mockito.kotlin:mockito-kotlin:4.1.0")
-    testImplementation("org.mockito:mockito-junit-jupiter:4.8.0")
+    testImplementation("org.mockito:mockito-junit-jupiter:4.10.0")
     testImplementation("org.junit.jupiter:junit-jupiter:5.7.1")
     testImplementation("org.testcontainers:junit-jupiter:1.17.6")
 }
@@ -20,6 +20,9 @@ configurations {
         exclude("org.apache.httpcomponents")
         exclude("org.jetbrains")
     }
+}
+repositories {
+    mavenCentral()
 }
 
 tasks.register<Zip>("packageDistribution") {

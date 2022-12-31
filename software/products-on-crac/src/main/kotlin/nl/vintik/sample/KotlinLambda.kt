@@ -14,7 +14,7 @@ class KotlinLambda : RequestHandler<ProductRequest, Product?>, Resource {
     private val productsController = ProductsController(ProductsService(productTable))
 
     init {
-        logger().info("register priming")
+        //register priming
         Core.getGlobalContext().register(this)
     }
 
@@ -24,13 +24,13 @@ class KotlinLambda : RequestHandler<ProductRequest, Product?>, Resource {
     }
 
     override fun beforeCheckpoint(context: org.crac.Context<out Resource>?) {
-        logger().info("beforeCheckpoint hook")
+        //beforeCheckpoint hook
         runCatching {
             productsController.find("i dont exist")
         }
     }
 
     override fun afterRestore(context: org.crac.Context<out Resource>?) {
-        logger().info("afterRestore hook")
+       //afterRestore hook
     }
 }
