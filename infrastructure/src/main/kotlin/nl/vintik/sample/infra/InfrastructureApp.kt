@@ -64,7 +64,7 @@ fun main() {
             .build()
     )
 
-    val stackNameSnapStartAndCrac = "Kotlin-Lambda-SnapStart-AndCRaC-example"
+    val stackNameSnapStartAndCrac = "Kotlin-Lambda-SnapStart-C1-AndCRaC-example"
     InfrastructureJvmC1SnapStartAndCracStack(
         app,
         stackNameSnapStartAndCrac,
@@ -75,8 +75,8 @@ fun main() {
             .build()
     )
 
-    val stackNameSnapStartC2AndCrac = "Kotlin-Lambda-SnapStart-C2-AndCRaC-example"
-    InfrastructureJvmC1SnapStartAndCracStack(
+    val stackNameSnapStartC2AndCrac = "Kotlin-Lambda-SnapStart-AndCRaC-example"
+    InfrastructureJvmSnapStartAndCracStack(
         app,
         stackNameSnapStartC2AndCrac,
         StackProps.builder()

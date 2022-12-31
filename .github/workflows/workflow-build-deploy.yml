@@ -111,11 +111,11 @@ jobs:
             },
             {
               component-name: "Kotlin Lambda JVM C1 SnapStart and CRaC",
-              stack-name: "Kotlin-Lambda-SnapStart-AndCRaC-example",
+              stack-name: "Kotlin-Lambda-SnapStart-C1-AndCRaC-example",
             },
             {
-              component-name: "Kotlin Lambda JVM C2 SnapStart and CRaC",
-              stack-name: "Kotlin-Lambda-SnapStart-C2-AndCRaC-example",
+              component-name: "Kotlin Lambda JVM SnapStart and CRaC",
+              stack-name: "Kotlin-Lambda-SnapStart-AndCRaC-example",
             },
           ]
     name: ${{ matrix.config.component-name }} deployment
