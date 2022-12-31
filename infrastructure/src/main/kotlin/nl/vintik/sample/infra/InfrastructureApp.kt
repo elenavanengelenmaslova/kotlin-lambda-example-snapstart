@@ -71,6 +71,17 @@ fun main() {
         StackProps.builder()
             .stackName(stackNameSnapStartAndCrac)
             .env(environment)
+            .description("SnapStart C1 and CraC example")
+            .build()
+    )
+
+    val stackNameSnapStartC2AndCrac = "Kotlin-Lambda-SnapStart-C2-AndCRaC-example"
+    InfrastructureJvmC1SnapStartAndCracStack(
+        app,
+        stackNameSnapStartC2AndCrac,
+        StackProps.builder()
+            .stackName(stackNameSnapStartC2AndCrac)
+            .env(environment)
             .description("SnapStart and CraC example")
             .build()
     )
