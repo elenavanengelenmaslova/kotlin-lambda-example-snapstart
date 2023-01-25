@@ -29,7 +29,9 @@ class InfrastructureJvmSnapStartStack(scope: Construct, id: String, props: Stack
 
         //enable SnapStart
         (function.node.defaultChild as CfnFunction).setSnapStart(
-            CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
+            CfnFunction.SnapStartProperty.builder()
+                .applyOn("PublishedVersions")
+                .build()
         )
         // publish a version
         function.currentVersion
