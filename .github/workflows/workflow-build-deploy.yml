@@ -98,6 +98,10 @@ jobs:
               stack-name: "Kotlin-Lambda-JVM-Arm64-4compare-example",
             },
             {
+              component-name: "Kotlin Lambda JVM X86",
+              stack-name: "Kotlin-Lambda-JVM-X86-4compare-example",
+            },
+            {
               component-name: "Kotlin Lambda JVM C1 Arm64",
               stack-name: "Kotlin-Lambda-JVM-C1-Arm64-4compare-example",
             },

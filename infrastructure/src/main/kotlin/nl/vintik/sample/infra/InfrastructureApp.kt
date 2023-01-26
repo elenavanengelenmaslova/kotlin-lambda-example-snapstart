@@ -21,6 +21,16 @@ fun main() {
             .build()
     )
 
+    val stackNameJVMX86 = "Kotlin-Lambda-JVM-X86-4compare-example"
+    InfrastructureJvmX86Stack(
+        app, stackNameJVMX86,
+        StackProps.builder()
+            .stackName(stackNameJVMX86)
+            .env(environment)
+            .description("JVM X86 example")
+            .build()
+    )
+
     val stackNameJVMArm64 = "Kotlin-Lambda-JVM-Arm64-4compare-example"
     InfrastructureJvmArm64Stack(
         app, stackNameJVMArm64,
