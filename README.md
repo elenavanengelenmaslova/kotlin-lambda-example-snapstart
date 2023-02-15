@@ -43,3 +43,18 @@ AWS_SECRET_KEY
 ```
 Update AWS region in `workflow-build-deploy.yml` in `.github` folder of the project
 
+### Test the application
+1. create an item in Dynamo DB table `Products-SnapStart-Example` :
+```json
+{
+ "id": "1",
+ "name": "Product1",
+ "price": 5.99
+}
+```
+Go to Lambda in console, find lambda variant to be tested and test that lambda with input:
+```json
+{
+  "id": "1"
+}
+```
