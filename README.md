@@ -43,7 +43,7 @@ AWS_SECRET_KEY
 ```
 Update AWS region in `workflow-build-deploy.yml` in `.github` folder of the project
 
-### Test the application
+## Test the application
 1. create an item in Dynamo DB table `Products-SnapStart-Example` :
 ```json
 {
