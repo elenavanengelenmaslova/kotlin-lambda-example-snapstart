@@ -6,6 +6,7 @@ Kotlin Lambda SnapStart example contains multiple setups of the same Lambda impl
 Kotlin Lambda SnapStart Example contains 7 CDK stacks: stack for DynamoDB table resource, and 6 stacks containing AWS Lambda resource variants - 
 - JVM ARM64 
 - JVM ARM64 with C1 compiler optimisation
+- JVM SnapStart Only
 - JVM SnapStart with C1 compiler optimisation
 - JVM SnapStart with priming using CRaC hooks
 - JVM SnapStart with C1 compiler optimisation and priming using CRaC hooks.
