@@ -33,5 +33,6 @@ class KotlinLambda : RequestHandler<ProductRequest, Product?>, Resource {
 
     override fun afterRestore(context: org.crac.Context<out Resource>?) {
         logger().info("afterRestore hook")
+        productsController.resetClient()
     }
 }
