@@ -21,12 +21,7 @@ data class Product(
 
         val schema: TableSchema<Product> = TableSchema.fromClass(Product::class.java)
 
-        private var dynamoDbAsyncClient: DynamoDbEnhancedAsyncClient = DynamoDbEnhancedAsyncClient.builder()
-            .dynamoDbClient(
-                DynamoDbAsyncClient.builder()
-                    .region(Region.EU_WEST_1)
-                    .build()
-            ).build()
+        private var dynamoDbAsyncClient: DynamoDbEnhancedAsyncClient = createClient()
 
         val productTable: DynamoDbAsyncTable<Product> = dynamoDbAsyncClient.table(
             TABLE_NAME,
@@ -37,13 +32,16 @@ data class Product(
          * workaround priming issue
          */
         fun resetClient(){
-            dynamoDbAsyncClient = DynamoDbEnhancedAsyncClient.builder()
+            dynamoDbAsyncClient = createClient()
+        }
+
+        private fun createClient(): DynamoDbEnhancedAsyncClient =
+            DynamoDbEnhancedAsyncClient.builder()
                 .dynamoDbClient(
                     DynamoDbAsyncClient.builder()
                         .region(Region.EU_WEST_1)
                         .build()
                 ).build()
-        }
     }
 
 }
