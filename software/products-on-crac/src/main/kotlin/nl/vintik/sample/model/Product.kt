@@ -28,13 +28,6 @@ data class Product(
             schema
         )
 
-        /**
-         * workaround priming issue
-         */
-        fun resetClient(){
-            dynamoDbAsyncClient = createClient()
-        }
-
         private fun createClient(): DynamoDbEnhancedAsyncClient =
             DynamoDbEnhancedAsyncClient.builder()
                 .dynamoDbClient(
