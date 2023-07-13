@@ -29,10 +29,10 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-      - name: Set up JDK 11
+      - name: Set up JDK 17
         uses: actions/setup-java@v2
         with:
-          java-version: "11"
+          java-version: "17"
           distribution: "adopt"
           cache: gradle
       - name: Build with Gradle
@@ -64,9 +64,14 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "18"
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:
@@ -126,7 +131,11 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
-
+      - name: Set up JDK 17
+        uses: actions/setup-java@v2
+        with:
+          java-version: '17'
+          distribution: 'adopt'
       - name: Download Artifacts
         uses: actions/download-artifact@v2
         with:
@@ -135,7 +144,7 @@ jobs:
 
       - uses: actions/setup-node@v2
         with:
-          node-version: "14"
+          node-version: "18"
       - name: Configure aws credentials
         uses: aws-actions/configure-aws-credentials@master
         with:

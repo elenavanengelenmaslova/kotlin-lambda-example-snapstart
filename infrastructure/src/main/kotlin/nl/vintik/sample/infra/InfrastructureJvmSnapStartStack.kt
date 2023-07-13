@@ -14,7 +14,7 @@ class InfrastructureJvmSnapStartStack(scope: Construct, id: String, props: Stack
         val function = Function.Builder.create(this, functionId)
             .description("Kotlin Lambda JVM SnapStart Example")
             .handler("nl.vintik.sample.KotlinLambda::handleRequest")
-            .runtime(Runtime.JAVA_11)
+            .runtime(Runtime.JAVA_17)
             .code(Code.fromAsset("../build/dist/function.zip"))
             .environment(
                 mapOf(
