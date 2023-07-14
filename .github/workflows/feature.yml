@@ -1,7 +1,7 @@
 name: Kotlin Lambda SnapStart Example CI/CD Feature
 on:
   push:
-    branches: [ feature-* ]
+    branches: [ feature/* ]
     paths-ignore:
       - '**.md'
   workflow_dispatch:

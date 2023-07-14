@@ -1,6 +1,6 @@
 
 dependencies {
-    implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.26")
+    implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.68")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
     implementation("io.github.crac:org-crac:0.1.3")
