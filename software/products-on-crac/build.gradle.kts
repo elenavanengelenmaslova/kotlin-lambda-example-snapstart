@@ -3,7 +3,7 @@ dependencies {
     implementation("software.amazon.awssdk:dynamodb-enhanced:2.20.68")
     implementation("com.amazonaws:aws-lambda-java-core:1.2.2")
     implementation("com.amazonaws:aws-lambda-java-events:3.11.1")
-    implementation("io.github.crac:org-crac:0.1.3")
+    implementation("org.crac:crac:1.4.0")
     implementation("org.slf4j:slf4j-api:2.0.5")
     implementation("org.slf4j:slf4j-simple:2.0.5")
     testImplementation("org.jetbrains.kotlin:kotlin-test-junit5:1.5.31")

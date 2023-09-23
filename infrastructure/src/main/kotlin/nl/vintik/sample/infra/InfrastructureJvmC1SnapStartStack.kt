@@ -2,8 +2,10 @@ package nl.vintik.sample.infra
 
 import software.amazon.awscdk.*
 import software.amazon.awscdk.services.dynamodb.Table
-import software.amazon.awscdk.services.lambda.*
+import software.amazon.awscdk.services.lambda.Code
 import software.amazon.awscdk.services.lambda.Function
+import software.amazon.awscdk.services.lambda.Runtime
+import software.amazon.awscdk.services.lambda.SnapStartConf
 import software.amazon.awscdk.services.logs.RetentionDays
 import software.constructs.Construct
 
@@ -24,15 +26,12 @@ class InfrastructureJvmC1SnapStartStack(scope: Construct, id: String, props: Sta
                     "CodeVersionString" to System.getenv("BUILD_NO"),
                 )
             )
+            .snapStart(SnapStartConf.ON_PUBLISHED_VERSIONS)  //enable SnapStart
             .logRetention(RetentionDays.ONE_WEEK)
             .memorySize(512)
             .timeout(Duration.seconds(120))
             .build()
 
-        //enable SnapStart
-        (function.node.defaultChild as CfnFunction).setSnapStart(
-            CfnFunction.SnapStartProperty.builder().applyOn("PublishedVersions").build()
-        )
         // publish a version
         function.currentVersion
 
